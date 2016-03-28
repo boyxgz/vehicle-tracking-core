@@ -40,7 +40,7 @@ abstract public class BaseAction {
 	abstract public boolean accept();
 
 	/**
-	 * @return 产品 ID 号
+	 * @return 产品ID号
 	 */
 	protected String getDeviceId() {
 		byte[] bytes = { 
