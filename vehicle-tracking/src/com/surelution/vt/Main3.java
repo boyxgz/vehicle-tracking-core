@@ -1,8 +1,0 @@
-package com.surelution.vt;
-
-public class Main3 {
-
-	public static void main(String[] args) {
-		System.out.println((int)'c');
-	}
-}
