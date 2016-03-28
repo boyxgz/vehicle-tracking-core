@@ -16,7 +16,16 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		try(ServerSocket ss = new ServerSocket(12345)) {
+		int port = 12345;
+		if(args != null && args.length > 0) {
+			String p = args[0];
+			try{
+				port = Integer.parseInt(p);
+			} catch (NumberFormatException e) {
+				
+			}
+		}
+		try(ServerSocket ss = new ServerSocket(port)) {
 
 			while(true) {
 				final Socket s = ss.accept();
