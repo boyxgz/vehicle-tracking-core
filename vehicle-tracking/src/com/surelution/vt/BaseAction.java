@@ -8,7 +8,7 @@ import java.util.Arrays;
  *
  */
 abstract public class BaseAction {
-	
+
 	private int[] inputNums;
 
 	/**
@@ -43,7 +43,7 @@ abstract public class BaseAction {
 	 * @return 产品ID号
 	 */
 	protected String getDeviceId() {
-		byte[] bytes = { 
+		byte[] bytes = {
 				(byte) inputNums[1], 
 				(byte) inputNums[2],
 				(byte) inputNums[3], 
@@ -120,7 +120,7 @@ abstract public class BaseAction {
 	}
 
 	/**
-	 * TODO 去除转移
+	 * TODO 去除转移符， eg, '('
 	 * @return 去除格式内容，如头、尾等，去除转移符后的净内容
 	 */
 	protected int[] getContent() {
@@ -141,6 +141,15 @@ abstract public class BaseAction {
 	 */
 	protected int getCheckSum() {
 		return inputNums[inputNums.length - 2];
+	}
+
+	/**
+	 * 
+	 * TODO 怎么判断一个上行是合法的？
+	 * @return 本次上行消息是否合法
+	 */
+	protected boolean isValid() {
+		return true;
 	}
 
 	@Override

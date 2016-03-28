@@ -5,7 +5,7 @@ package com.surelution.vt;
  * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
  *
  */
-public class DemoAction extends BaseAction {
+public class WildCardAction extends BaseAction {
 
 	@Override
 	public int[] execute() {
