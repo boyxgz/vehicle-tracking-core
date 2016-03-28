@@ -2,6 +2,11 @@ package com.surelution.vt;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class ActionChain {
 
 	private static ActionChain instance = new ActionChain(Main.class.getClassLoader());

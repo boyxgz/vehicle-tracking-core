@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) throws Exception {

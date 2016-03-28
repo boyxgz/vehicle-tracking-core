@@ -1,5 +1,10 @@
 package com.surelution.vt;
 
+/**
+ * 
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class CompositeUploadAction extends BaseAction {
 
 	@Override

@@ -5,24 +5,31 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class Main2 {
 
 	public static void main(String[] args) throws Exception {
 		ArrayList<Integer> buffer = new ArrayList<>();
-		ServerSocket ss = new ServerSocket(12345);
-		Socket s = ss.accept();
-		InputStream is = s.getInputStream();
-		int i = is.read();
-		while(i >= 0) {
-			buffer.add(i);
-			if(i == 0x29) {
-				int[] nums = new int[buffer.size()];
-				for(int index = 0; index < buffer.size(); index++) {
-					nums[index] = buffer.get(index);
+		try(ServerSocket ss = new ServerSocket(12345)) {
+
+			Socket s = ss.accept();
+			InputStream is = s.getInputStream();
+			int i = is.read();
+			while(i >= 0) {
+				buffer.add(i);
+				if(i == 0x29) {
+					int[] nums = new int[buffer.size()];
+					for(int index = 0; index < buffer.size(); index++) {
+						nums[index] = buffer.get(index);
+					}
+					pop(nums);
 				}
-				pop(nums);
+				i = is.read();
 			}
-			i = is.read();
 		}
 	}
 

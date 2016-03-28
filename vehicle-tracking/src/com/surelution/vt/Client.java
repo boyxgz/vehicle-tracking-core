@@ -3,6 +3,11 @@ package com.surelution.vt;
 import java.io.OutputStream;
 import java.net.Socket;
 
+/**
+ * 
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class Client {
 
 	public static void main(String[] args) throws Exception{
