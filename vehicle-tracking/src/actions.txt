@@ -1,1 +1,2 @@
+com.surelution.vt.CompositeUploadAction
 com.surelution.vt.DemoAction

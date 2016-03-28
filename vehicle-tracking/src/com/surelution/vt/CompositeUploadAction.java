@@ -4,14 +4,13 @@ public class CompositeUploadAction extends BaseAction {
 
 	@Override
 	public int[] execute() {
-		// TODO Auto-generated method stub
+		System.out.println(this);
 		return null;
 	}
 
 	@Override
 	public boolean accept() {
-		// TODO Auto-generated method stub
-		return false;
+		return getCmdType() == 0x20 && getCmdId() == 0x84;
 	}
 
 }
