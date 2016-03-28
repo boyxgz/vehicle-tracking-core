@@ -29,7 +29,7 @@ public class ActionChain {
 		System.out.println("load chain");
 	}
 
-	public int[] getContent(int[] inputNums) {
+	public int[] process(int[] inputNums) {
 		for(Class<BaseAction> cProcessor : processors) {
 			//TODO how to handle ?
 			BaseAction processor = null;
