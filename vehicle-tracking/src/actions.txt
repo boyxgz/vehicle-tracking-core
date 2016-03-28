@@ -1,2 +1,3 @@
 com.surelution.vt.CompositeUploadAction
+com.surelution.vt.HeartBeatAction
 com.surelution.vt.DemoAction
