@@ -1,7 +1,12 @@
 package com.surelution.vt;
 
+/**
+ * 根据raw data构建此对象，可以以此类作为父类，创建子类
+ * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
+ *
+ */
 public class Message {
-	
+
 	public Message(int[] rawContent) {
 		this.rawContent = rawContent;
 	}
