@@ -98,4 +98,31 @@ public class Connection implements Runnable {
 	public Date getLastMessageAt() {
 		return lastMessageAt;
 	}
+
+	/**
+	 * 主动下行内容
+	 * @param raw content
+	 */
+	public void send(int[] content) {
+		try{
+			for(int c : content) {
+				os.write((byte)c);
+			}
+		}catch(Exception e) {
+			
+		}
+	}
+
+	/**
+	 * 主动下行内容
+	 * @param msg
+	 * 
+	 */
+	public void send(Message msg) {
+		//TODO 下行的消息？
+	}
+
+	public static Connection findByName(String deviceId) {
+		return connections.get(deviceId);
+	}
 }
