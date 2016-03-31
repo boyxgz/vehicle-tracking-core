@@ -1,4 +1,4 @@
-package com.surelution.vt;
+package com.surelution.vt.core;
 
 /**
  * 根据raw data构建此对象，可以以此类作为父类，创建子类
@@ -24,7 +24,7 @@ public class Message {
 	/**
 	 * @return 产品ID号
 	 */
-	protected String getDeviceId() {
+	public String getDeviceId() {
 		byte[] bytes = {
 				(byte) rawContent[1], 
 				(byte) rawContent[2],
@@ -89,7 +89,7 @@ public class Message {
 	</table>
 	 * @return 命令类型
 	 */
-	protected int getCmdType() {
+	public int getCmdType() {
 		return rawContent[7];
 	}
 
@@ -97,7 +97,7 @@ public class Message {
 	 * 
 	 * @return 命令编号
 	 */
-	protected int getCmdId() {
+	public int getCmdId() {
 		return rawContent[8];
 	}
 
@@ -105,7 +105,7 @@ public class Message {
 	 * TODO 去除转移符， eg, '('
 	 * @return 去除格式内容，如头、尾等，去除转移符后的净内容
 	 */
-	protected int[] getContent() {
+	public int[] getContent() {
 		return null;
 	}
 
@@ -113,7 +113,7 @@ public class Message {
 	 * 
 	 * @return
 	 */
-	protected int getContentLength() {
+	public int getContentLength() {
 		return rawContent[9] * 256 + rawContent[10];
 	}
 
@@ -121,7 +121,7 @@ public class Message {
 	 * 
 	 * @return 校验和
 	 */
-	protected int getCheckSum() {
+	public int getCheckSum() {
 		return rawContent[rawContent.length - 2];
 	}
 
@@ -130,7 +130,7 @@ public class Message {
 	 * TODO 怎么判断一个上行是合法的？
 	 * @return 本次上行消息是否合法
 	 */
-	protected boolean isValid() {
+	public boolean isValid() {
 		return true;
 	}
 
@@ -147,6 +147,7 @@ public class Message {
 		sb.append(getContentLength());
 		sb.append(",content:");
 		for(int i : rawContent) {
+			sb.append("0x");
 			sb.append(Integer.toHexString(i));
 			sb.append(",");
 		}

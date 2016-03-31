@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.surelution.vt;
+package com.surelution.vt.core;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

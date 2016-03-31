@@ -1,4 +1,4 @@
-package com.surelution.vt;
+package com.surelution.vt.core;
 
 
 /**

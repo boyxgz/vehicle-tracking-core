@@ -1,4 +1,4 @@
-package com.surelution.vt;
+package com.surelution.vt.core;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class ActionChain {
 
-	private static ActionChain instance = new ActionChain(Main.class.getClassLoader());
+	private static ActionChain instance = new ActionChain(ActionChain.class.getClassLoader());
 	private ClassLoader classLoader;
 
 	private ArrayList<Class<BaseAction>> processors = new ArrayList<Class<BaseAction>>();

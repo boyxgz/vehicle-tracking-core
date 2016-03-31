@@ -1,4 +1,6 @@
-package com.surelution.vt;
+package com.surelution.vt.sample;
+
+import com.surelution.vt.core.BaseAction;
 
 /**
  * 
@@ -11,6 +13,7 @@ public class HeartBeatAction extends BaseAction {
 	public int[] execute() {
 		System.out.print("心跳，来自：");
 		System.out.println(getMessage().getDeviceId());
+		System.out.println(getMessage());
 		return null;
 	}
 

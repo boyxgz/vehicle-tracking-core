@@ -1,4 +1,4 @@
-package com.surelution.vt;
+
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.surelution.vt.core.ActionChain;
+import com.surelution.vt.core.Message;
 
 /**
  * 
