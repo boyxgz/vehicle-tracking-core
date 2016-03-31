@@ -1,6 +1,7 @@
 package com.surelution.vt.sample;
 
 import com.surelution.vt.core.BaseAction;
+import com.surelution.vt.core.HeartbeatMessage;
 
 /**
  * 
@@ -11,7 +12,6 @@ public class HeartBeatAction extends BaseAction {
 
 	@Override
 	public int[] execute() {
-		System.out.print("心跳，来自：");
 		System.out.println(getMessage().getDeviceId());
 		System.out.println(getMessage());
 		return null;
@@ -19,7 +19,7 @@ public class HeartBeatAction extends BaseAction {
 
 	@Override
 	public boolean accept() {
-		return getMessage().getCmdType() == 0x10 && getMessage().getCmdId() == 0x88;
+		return getMessage() instanceof HeartbeatMessage;
 	}
 
 }
