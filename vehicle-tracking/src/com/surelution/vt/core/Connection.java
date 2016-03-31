@@ -50,7 +50,7 @@ public class Connection implements Runnable {
 						buffer.clear();
 
 						ActionChain chain = ActionChain.getInstance(getClass().getClassLoader());
-						Message msg = new Message(nums);
+						Message msg = MessageFactory.create(nums);
 						if(deviceId == null) {
 							deviceId = msg.getDeviceId();
 							Connection oldOne = connections.get(deviceId);
