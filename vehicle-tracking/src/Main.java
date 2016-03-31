@@ -1,15 +1,9 @@
 
 
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
-import com.surelution.vt.core.ActionChain;
-import com.surelution.vt.core.Message;
+import com.surelution.vt.core.Connection;
 
 /**
  * 
@@ -32,45 +26,7 @@ public class Main {
 
 			while(true) {
 				final Socket s = ss.accept();
-				Thread t = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						try{
-							InputStream is = s.getInputStream();
-							OutputStream os = s.getOutputStream();
-
-							List<Integer> buffer = Collections.synchronizedList(new ArrayList<Integer>());
-							synchronized (buffer) {
-								int i = is.read();
-								while(i >= 0) {
-									buffer.add(i);
-									if(i == 0x29) {
-										int[] nums = new int[buffer.size()];
-										for(int index = 0; index < buffer.size(); index++) {
-											nums[index] = buffer.get(index);
-										}
-										buffer.clear();
-
-										ActionChain chain = ActionChain.getInstance(Main.class.getClassLoader());
-										Message msg = new Message(nums);
-										int[] resp = chain.process(msg);
-										if(resp != null) {
-											for(int c : resp) {
-												os.write(c);
-											}
-											os.flush();
-										}
-									}
-									i = is.read();
-								}
-							}
-						
-						}catch(Exception e) {
-							
-						}
-					}
-				});
+				Thread t = new Thread(new Connection(s));
 				t.start();
 			}
 		
