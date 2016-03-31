@@ -34,7 +34,7 @@ public class ActionChain {
 		System.out.println("load chain");
 	}
 
-	public int[] process(int[] inputNums) {
+	public int[] process(Message message) {
 		for(Class<BaseAction> cProcessor : processors) {
 			//TODO how to handle ?
 			BaseAction processor = null;
@@ -47,7 +47,7 @@ public class ActionChain {
 			}
 			System.out.print("try ");
 			System.out.println(processor.getClass().getName());
-			processor.feed(inputNums);
+			processor.feed(message);
 			boolean accept = false;
 			try{
 				accept = processor.accept();

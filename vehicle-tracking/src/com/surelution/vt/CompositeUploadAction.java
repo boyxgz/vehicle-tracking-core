@@ -9,13 +9,13 @@ public class CompositeUploadAction extends BaseAction {
 
 	@Override
 	public int[] execute() {
-		System.out.println(this);
+		System.out.println(getMessage());
 		return null;
 	}
 
 	@Override
 	public boolean accept() {
-		return getCmdType() == 0x20 && getCmdId() == 0x84;
+		return getMessage().getCmdType() == 0x20 && getMessage().getCmdId() == 0x84;
 	}
 
 }

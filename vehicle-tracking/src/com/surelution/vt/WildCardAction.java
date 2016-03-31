@@ -9,7 +9,7 @@ public class WildCardAction extends BaseAction {
 
 	@Override
 	public int[] execute() {
-		System.out.println(this);
+		System.out.println(getMessage());
 		return null;
 	}
 

@@ -31,7 +31,6 @@ public class Main {
 				final Socket s = ss.accept();
 				Thread t = new Thread(new Runnable() {
 
-
 					@Override
 					public void run() {
 						try{
@@ -51,7 +50,8 @@ public class Main {
 										buffer.clear();
 
 										ActionChain chain = ActionChain.getInstance(Main.class.getClassLoader());
-										int[] resp = chain.process(nums);
+										Message msg = new Message(nums);
+										int[] resp = chain.process(msg);
 										if(resp != null) {
 											for(int c : resp) {
 												os.write(c);
