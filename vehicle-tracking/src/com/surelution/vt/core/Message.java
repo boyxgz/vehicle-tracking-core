@@ -1,5 +1,7 @@
 package com.surelution.vt.core;
 
+import java.util.Arrays;
+
 /**
  * 根据raw data构建此对象，可以以此类作为父类，创建子类
  * @author <a href="mailto:guangzong.syu@gmail.com">guagnzong</a>
@@ -106,7 +108,7 @@ public class Message {
 	 * @return 去除格式内容，如头、尾等，去除转移符后的净内容
 	 */
 	public int[] getContent() {
-		return null;
+		return Arrays.copyOfRange(rawContent, 11, rawContent.length - 2);
 	}
 
 	/**
@@ -145,12 +147,12 @@ public class Message {
 		sb.append(Integer.toHexString(getCmdId()));
 		sb.append(",cmd length:");
 		sb.append(getContentLength());
-		sb.append(",content:");
-		for(int i : rawContent) {
-			sb.append("0x");
-			sb.append(Integer.toHexString(i));
-			sb.append(",");
-		}
+//		sb.append(",content:");
+//		for(int i : rawContent) {
+//			sb.append("0x");
+//			sb.append(Integer.toHexString(i));
+//			sb.append(",");
+//		}
 		return sb.toString();
 	}
 	
