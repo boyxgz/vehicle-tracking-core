@@ -13,10 +13,16 @@ public class CompositeUploadingMessage extends Message {
 		content = getContent();
 	}
 	
+	/**
+	 * @return 行程ID
+	 */
 	public int getTripId() {
 		return content[1] * 256 + content[2];
 	}
 
+	/**
+	 * @return 时间
+	 */
 	public Date getDate() {
 		int year = 2000 + BcdCode.convertToInteger(content[5]);
 		int month = BcdCode.convertToInteger(content[4]);
@@ -29,6 +35,10 @@ public class CompositeUploadingMessage extends Message {
 		return c.getTime();
 	}
 	
+	/**
+	 * 
+	 * @return 纬度
+	 */
 	public double getLatitude() {
 		String temp = BcdCode.convertToString(content[9]) 
 				+ BcdCode.convertToString(content[10])
@@ -38,6 +48,10 @@ public class CompositeUploadingMessage extends Message {
 		return Double.parseDouble(temp);
 	}
 	
+	/**
+	 * 
+	 * @return 经度
+	 */
 	public Double getLongitude() {
 		StringBuffer temp = new StringBuffer();
 		temp.append(BcdCode.convertToString(content[13])); 
