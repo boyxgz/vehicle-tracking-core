@@ -50,7 +50,7 @@ public class CompositeUploadingMessage extends Message {
 
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer();
+		StringBuffer sb = new StringBuffer("请求/上传 GPS + OBD 混合信息：");
 		sb.append(super.toString());
 		sb.append(",trip id:");
 		sb.append(getTripId());
