@@ -56,58 +56,58 @@ public class DeviceStatus {
 	}
 	
 	/**
-	 * @return 拖吊状态,不解啥事拖吊状态，所以用这个名字了
+	 * @return 拖吊状态
 	 */
-	public boolean isTuoDiaoStart(){
+	public boolean isTowed(){
 		return (content[1] & 64) == 0;
 	}
 	
 	/**
 	 * @return ACC状态,true表关，false表开
 	 */
-	public boolean accOffOn(){
+	public boolean isAccOff(){
 		return (content[2] & 1) == 0;
 	}
 	
 	/**
 	 * @return 左前门状态，true表关，false表开
 	 */
-	public boolean isLeftFrontDoor(){
+	public boolean isLeftFrontDoorClosed(){
 		return (content[2] & 2) == 0;
 	}
 	
 	/**
 	 * @return 右前门，true表关，false表开
 	 */
-	public boolean isRightFrontDoor(){
+	public boolean isRightFrontDoorClosed(){
 		return (content[2] & 4) == 0;
 	}
 	
 	/**
 	 * @return 左后门，true表关，false表开
 	 */
-	public boolean isLeftBackDoor(){
+	public boolean isLeftBackDoorClosed(){
 		return (content[2] & 8) == 0;
 	}
 	
 	/**
 	 * @return 右后门，true表关，false表开
 	 */
-	public boolean isRightBackDoor(){
+	public boolean isRightBackDoorClosed(){
 		return (content[2] & 16) == 0;
 	}
 	
 	/**
 	 * @return 尾箱状态 true表关，false表开
 	 */
-	public boolean isTrunk(){
+	public boolean isTrunkLidClosed(){
 		return (content[2] & 32) == 0;
 	}
 	
 	/**
 	 * @return 中控锁状态 true表示上锁，false表是没上锁
 	 */
-	public boolean isControlLock(){
+	public boolean isControlLocked(){
 		return (content[2] & 64) != 0; 
 	}
 	
@@ -170,6 +170,7 @@ public class DeviceStatus {
 	public boolean isPlugStatu(){
 		return (content[3] & 128) == 0;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -185,24 +186,24 @@ public class DeviceStatus {
 		sb.append("\nSupport ");
 		sb.append(isSupport());
 		sb.append("\nTuoDiaoStart ");
-		sb.append(isTuoDiaoStart());
+		sb.append(isTowed());
 		sb.append("\naccOffOn ");
-		sb.append(accOffOn());
+		sb.append(isAccOff());
 		sb.append("\nLeftFrontDoor ");
-		sb.append(isLeftFrontDoor());
+		sb.append(isLeftFrontDoorClosed());
 		sb.append("\nRightFrontDor ");
-		sb.append(isRightFrontDoor());
+		sb.append(isRightFrontDoorClosed());
 		sb.append("\nLeftBackDoor ");
-		sb.append(isLeftBackDoor());
+		sb.append(isLeftBackDoorClosed());
 		sb.append("\nRightBackDoor ");
-		sb.append(isRightBackDoor());
+		sb.append(isRightBackDoorClosed());
 		sb.append("\nTrunk ");
-		sb.append(isTrunk());
+		sb.append(isTrunkLidClosed());
 		sb.append("\nControlLock ");
-		sb.append(isControlLock());
+		sb.append(isControlLocked());
 		sb.append("\nVoltage ");
 		sb.append(isVoltage());
-		sb.append("\nisGPSStatus ");
+		sb.append("\nGPSStatus ");
 		sb.append(isGPSStatus());
 		sb.append("\nSpeedLimit ");
 		sb.append(isSpeedLimit());
