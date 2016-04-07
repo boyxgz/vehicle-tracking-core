@@ -21,7 +21,7 @@ public class DeviceStatus {
 	
 	/**
 	 * 
-	 * @return续航里程是否大于50km
+	 * @return 续航里程是否大于50km
 	 */
 	public boolean isContinuousVoyage(){
 		return (content[1] & 1) == 0 ;
@@ -167,7 +167,7 @@ public class DeviceStatus {
 	/**
 	 * @return 插拔状态	true为正常，false为拔出
 	 */
-	public boolean isPlugStatu(){
+	public boolean isPluggedIn(){
 		return (content[3] & 128) == 0;
 	}
 
@@ -183,13 +183,13 @@ public class DeviceStatus {
 		sb.append(isEngineFailure());
 		sb.append("\nCoolantTemperature ");
 		sb.append(isCoolantTemperature());
-		sb.append("\nSupport ");
+		sb.append("\nSupport:");
 		sb.append(isSupport());
-		sb.append("\nTuoDiaoStart ");
+		sb.append("\nTowed:");
 		sb.append(isTowed());
-		sb.append("\naccOffOn ");
+		sb.append("\nAccOff:");
 		sb.append(isAccOff());
-		sb.append("\nLeftFrontDoor ");
+		sb.append("\nLeftFrontDoorClosed:");
 		sb.append(isLeftFrontDoorClosed());
 		sb.append("\nRightFrontDor ");
 		sb.append(isRightFrontDoorClosed());
@@ -216,7 +216,7 @@ public class DeviceStatus {
 		sb.append("\nCleanThrottle ");
 		sb.append(isCleanThrottle());
 		sb.append("\nPlugStatu ");
-		sb.append(isPlugStatu());
+		sb.append(isPluggedIn());
 		return sb.toString();
 	}
 }
